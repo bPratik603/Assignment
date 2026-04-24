@@ -1,0 +1,25 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <nav class="flex items-center space-x-2 text-sm text-slate mb-12">
+    <a routerLink="/" class="hover:text-accent transition-colors">Home</a>
+    <span>/</span>
+    <span class="text-white font-medium">{{ categoryName }}</span>
+  </nav>
+
+  <header class="mb-16">
+    <div class="flex items-center space-x-4 mb-4">
+      <span class="w-12 h-[1px] bg-accent"></span>
+      <span class="text-accent uppercase tracking-[0.3em] text-xs font-bold">Category</span>
+    </div>
+    <h1 class="text-5xl font-black text-white uppercase">{{ categoryName }}</h1>
+  </header>
+
+  <div *ngIf="items$ | async as items; else loading" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <app-item-card *ngFor="let item of items" [item]="item"></app-item-card>
+  </div>
+
+  <ng-template #loading>
+    <div class="flex justify-center py-24">
+      <div class="w-10 h-10 border-2 border-accent/20 border-t-accent rounded-full animate-spin"></div>
+    </div>
+  </ng-template>
+</div>

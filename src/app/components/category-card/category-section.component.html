@@ -1,0 +1,19 @@
+<section class="mb-20">
+  <div class="flex justify-between items-end mb-8">
+    <div>
+      <h2 class="text-3xl font-bold text-white mb-2">{{ category }}</h2>
+      <div class="w-12 h-1 bg-accent rounded-full"></div>
+    </div>
+    <a 
+      [routerLink]="['/category', category]" 
+      class="text-accent hover:underline font-semibold flex items-center group"
+    >
+      View Collection 
+      <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+    </a>
+  </div>
+  
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <app-item-card *ngFor="let item of items" [item]="item" class="h-full"></app-item-card>
+  </div>
+</section>

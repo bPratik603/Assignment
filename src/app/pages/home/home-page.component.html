@@ -1,0 +1,26 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+  <header class="text-center mb-24">
+    <h1 class="text-5xl md:text-7xl font-extrabold mb-6 bg-gradient-to-r from-white to-accent bg-clip-text text-transparent">
+      Explore the Catalog
+    </h1>
+    <p class="text-xl text-slate max-w-2xl mx-auto leading-relaxed">
+      A curated collection of premium cars, bikes, and tech gadgets. 
+      Discover the future of style and performance.
+    </p>
+  </header>
+
+  <div *ngIf="categoriesWithItems$ | async as categories; else loading">
+    <app-category-section 
+      *ngFor="let cat of categories" 
+      [category]="cat.name" 
+      [items]="cat.items">
+    </app-category-section>
+  </div>
+
+  <ng-template #loading>
+    <div class="flex flex-col items-center justify-center py-24 space-y-4">
+      <div class="w-12 h-12 border-4 border-accent border-t-transparent rounded-full animate-spin"></div>
+      <p class="text-accent font-medium tracking-widest uppercase text-sm">Synchronizing Database...</p>
+    </div>
+  </ng-template>
+</div>

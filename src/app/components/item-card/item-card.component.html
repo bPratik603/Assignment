@@ -1,0 +1,24 @@
+<div 
+  [routerLink]="['/item', item.itemname]"
+  class="group relative bg-navy-light rounded-2xl overflow-hidden border border-white/5 hover:border-accent/40 transition-all duration-300 hover:-translate-y-2 cursor-pointer h-full flex flex-col shadow-lg hover:shadow-accent/5"
+>
+  <div class="aspect-video overflow-hidden">
+    <img 
+      [src]="item.image" 
+      [alt]="item.itemname"
+      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+      loading="lazy"
+    >
+  </div>
+  <div class="p-6 flex-grow flex flex-col justify-between">
+    <h3 class="text-xl font-semibold text-white group-hover:text-accent transition-colors">
+      {{ item.itemname }}
+    </h3>
+    <div class="mt-4 flex items-center justify-between">
+      <span class="px-3 py-1 bg-accent/10 text-accent text-xs font-bold rounded-full uppercase tracking-tighter">
+        {{ item.category }}
+      </span>
+      <span class="text-accent text-lg opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+    </div>
+  </div>
+</div>

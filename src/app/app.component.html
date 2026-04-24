@@ -1,0 +1,28 @@
+<div class="min-h-screen flex flex-col bg-navy text-slate-light">
+  <nav class="bg-navy/90 backdrop-blur-md border-b border-white/5 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
+      <a routerLink="/" class="text-2xl font-bold text-white tracking-widest">
+        CATALOG<span class="text-accent underline decoration-accent/30 underline-offset-4">X</span>
+      </a>
+      <ul class="flex items-center space-x-8">
+        <li><a routerLink="/" class="text-sm font-medium hover:text-accent transition-colors text-slate-light">Home</a></li>
+        <li><a [routerLink]="['/category', 'Cars']" class="text-sm font-medium hover:text-accent transition-colors text-slate-light">Cars</a></li>
+        <li><a [routerLink]="['/category', 'Phones']" class="text-sm font-medium hover:text-accent transition-colors text-slate-light">Phones</a></li>
+        <li><a [routerLink]="['/category', 'Bikes']" class="text-sm font-medium hover:text-accent transition-colors text-slate-light">Bikes</a></li>
+        <li><a [routerLink]="['/category', 'Computers']" class="text-sm font-medium hover:text-accent transition-colors text-slate-light">Computers</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="flex-grow">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="py-12 bg-navy-dark border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="text-slate text-sm">
+        &copy; 2026 CatalogX. Crafted with <span class="text-accent">Angular 18</span> & <span class="text-accent">Tailwind CSS</span>.
+      </p>
+    </div>
+  </footer>
+</div>

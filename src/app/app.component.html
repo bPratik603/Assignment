@@ -4,12 +4,33 @@
       <a routerLink="/" class="text-2xl font-bold text-white tracking-widest">
         CATALOG<span class="text-accent underline decoration-accent/30 underline-offset-4">X</span>
       </a>
-      <ul class="flex items-center space-x-8">
+      
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex items-center space-x-8">
         <li><a routerLink="/" class="text-sm font-medium hover:text-accent transition-colors text-slate-light">Home</a></li>
         <li><a [routerLink]="['/category', 'Cars']" class="text-sm font-medium hover:text-accent transition-colors text-slate-light">Cars</a></li>
         <li><a [routerLink]="['/category', 'Phones']" class="text-sm font-medium hover:text-accent transition-colors text-slate-light">Phones</a></li>
         <li><a [routerLink]="['/category', 'Bikes']" class="text-sm font-medium hover:text-accent transition-colors text-slate-light">Bikes</a></li>
         <li><a [routerLink]="['/category', 'Computers']" class="text-sm font-medium hover:text-accent transition-colors text-slate-light">Computers</a></li>
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <button (click)="toggleMenu()" class="md:hidden p-2 text-slate-light hover:text-accent transition-colors focus:outline-none" aria-label="Toggle menu">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path *ngIf="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          <path *ngIf="isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu Container -->
+    <div *ngIf="isMenuOpen" class="md:hidden bg-navy/95 backdrop-blur-lg border-b border-white/5 overflow-hidden transition-all duration-300">
+      <ul class="px-4 py-4 space-y-3">
+        <li><a (click)="isMenuOpen = false" routerLink="/" class="block px-3 py-2 rounded-md text-base font-medium text-slate-light hover:text-accent hover:bg-white/5 transition-colors">Home</a></li>
+        <li><a (click)="isMenuOpen = false" [routerLink]="['/category', 'Cars']" class="block px-3 py-2 rounded-md text-base font-medium text-slate-light hover:text-accent hover:bg-white/5 transition-colors">Cars</a></li>
+        <li><a (click)="isMenuOpen = false" [routerLink]="['/category', 'Phones']" class="block px-3 py-2 rounded-md text-base font-medium text-slate-light hover:text-accent hover:bg-white/5 transition-colors">Phones</a></li>
+        <li><a (click)="isMenuOpen = false" [routerLink]="['/category', 'Bikes']" class="block px-3 py-2 rounded-md text-base font-medium text-slate-light hover:text-accent hover:bg-white/5 transition-colors">Bikes</a></li>
+        <li><a (click)="isMenuOpen = false" [routerLink]="['/category', 'Computers']" class="block px-3 py-2 rounded-md text-base font-medium text-slate-light hover:text-accent hover:bg-white/5 transition-colors">Computers</a></li>
       </ul>
     </div>
   </nav>
